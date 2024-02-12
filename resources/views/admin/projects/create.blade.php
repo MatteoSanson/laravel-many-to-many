@@ -20,7 +20,7 @@
             @csrf
 
             <div class="mb-3">
-                <label class="form-label">Title</label>
+                <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                     value="{{ old('title') }}">
                 @error('title')
@@ -28,7 +28,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label class="form-label">Type</label>
+                <label for="type" class="form-label">Type</label>
                 <select class="form-select" aria-label="Default select example" name="type_id">
                     <option selected>Choose an option</option>
                     @foreach ($types as $type)
@@ -36,6 +36,19 @@
                             {{ $type->title }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="mb-3">
+                <div>
+                    <label class="form-label">Tehcnology</label>
+                </div>
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="{{ $technology->id }}" name="technologies[]"
+                            id="tag-{{ $technology->id }}"
+                            {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="tag-{{ $technology->id }}">{{ $technology->title }}</label>
+                    </div>
+                @endforeach
             </div>
             {{-- <div class="mb-3">
                 <label class="form-label">Language/Framework</label>
@@ -46,7 +59,7 @@
                 @enderror
             </div> --}}
             <div class="mb-3">
-                <label class="form-label">Visibility</label>
+                <label for="visibility" class="form-label">Visibility</label>
                 <select class="form-select" aria-label="Default select example" name="visibility">
                     <option value="public" {{ old('visibility') == 'public' ? 'selected' : '' }}>public</option>
                     <option value="private" {{ old('visibility') == 'private' ? 'selected' : '' }}>private</option>
