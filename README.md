@@ -1,22 +1,20 @@
-# Laravel Boolfolio - Project Typology
+# Laravel Boolfolio - Project Technology
 
-Partendo dalla repository laravel-auth aggiungere una nuova entità Type.<br>
-Questa entità rappresenta la tipologia di progetto ed è in relazione one to many con i progetti.<br>
-Task da implementare:
-- creare la migration per la tabella types
-- creare il model Type
-- creare la migration di modifica per la tabella projects per aggiungere la chiave esterna
-- aggiungere ai model Type e Project i metodi per definire la relazione one to many
-- visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
-- permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un progetto
-- gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione
+Continuando a lavorare sul codice della repo laravel-one-to-many, aggiungere una nuova entità Technology.<br>
+Questa entità rappresenta le tecnologie utilizzate ed è in relazione many to many con i progetti.<br>
+Tasks:
+- creare la migration per la tabella technologies
+- creare il model Technology
+- creare la migration per la tabella pivot project_technology
+- aggiungere ai model Technology e Project i metodi per definire la relazione many to many
+- visualizzare nella pagina di dettaglio di un progetto le tecnologie utilizzate, se presenti
+- permettere all’utente di associare le tecnologie nella pagina di creazione e modifica di un progetto
+- gestire il salvataggio dell’associazione progetto-tecnologie con opportune regole di validazione
 <br><br>
 
 ## Bonus 1
 
-Creare il seeder per il model Type.
-<br><br>
+Creare il seeder per il model Technology.<br><br>
 
 ## Bonus 2
-
-Aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
+Aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
