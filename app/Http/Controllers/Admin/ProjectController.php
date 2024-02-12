@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -27,7 +28,10 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+
+        $technologies = Technology::all();
+
+        return view('admin.projects.create', compact('types','technologies'));
     }
 
     /**
@@ -40,6 +44,8 @@ class ProjectController extends Controller
         $project = new Project();
         $project->title = $data['title'];
         $project->type_id = $data['type_id'];
+        
+        
         // $project->language_framework = $data['language_framework'];
         $project->visibility = $data['visibility'];
 
@@ -53,6 +59,10 @@ class ProjectController extends Controller
         $project->slug = $slug;
 
         $project->save();
+
+        if (isset($data['technologies'])) {
+            $project->technologies()->sync($data['technologies']);
+        }
 
         return redirect()->route('admin.projects.show', $project->slug)->with('message', 'Progetto creato con successo!');
     }
