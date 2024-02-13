@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('header')
-    <h1>Technologies</h1>
-    <a href="{{ route('admin.technologies.create') }}" role="button" class="btn btn-success btn-sm">New
-        Technology</a>
+    <h1>Types</h1>
+    <a href="{{ route('admin.types.create') }}" role="button" class="btn btn-success btn-sm">New
+        Type</a>
 @endsection
 
 @section('content')
@@ -33,17 +33,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($technologies as $technology)
+            @foreach ($types as $type)
                 <tr class="text-center">
-                    <th scope="row">{{ $technology->id }}</th>
-                    <td>{{ $technology->title }}</td>
-                    <td>{{ $technology->slug }}</td>
+                    <th scope="row">{{ $type->id }}</th>
+                    <td>{{ $type->title }}</td>
+                    <td>{{ $type->slug }}</td>
                     <td>
-                        <a href="{{ route('admin.technologies.show', $technology) }}"
-                            class="btn btn-info btn-sm">details</a>
-                        <a href="{{ route('admin.technologies.edit', $technology) }}"
-                            class="btn btn-primary btn-sm">edit</a>
-                        <form action="{{ route('admin.technologies.destroy', $technology->slug) }}" method="POST"
+                        <a href="{{ route('admin.types.show', $type) }}" class="btn btn-info btn-sm">details</a>
+                        <a href="{{ route('admin.types.edit', $type) }}" class="btn btn-primary btn-sm">edit</a>
+                        <form action="{{ route('admin.types.destroy', $type->slug) }}" method="POST"
                             class="d-inline-block">
                             @csrf
                             @method('DELETE')

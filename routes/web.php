@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TechnologyController;
+use App\Http\Controllers\Admin\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::middleware(['auth', 'verified'])
     Route::resource('projects', ProjectController::class)->parameters(['projects'=>'project:slug']);
 
     Route::resource('technologies', TechnologyController::class)->parameters(['technologies'=>'technology:slug']);
+    
+    Route::resource('types', TypeController::class)->parameters(['types'=>'type:slug']);
 });
 
 require __DIR__.'/auth.php';
