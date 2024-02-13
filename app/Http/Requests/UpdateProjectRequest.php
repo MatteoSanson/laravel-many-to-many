@@ -42,6 +42,7 @@ class UpdateProjectRequest extends FormRequest
         'visibility' => 'nullable|max:7',
         'slug' => 'unique:projects,slug',
         'type_id' => ['nullable', 'exists:types,id'],
+        'technologies' => ['nullable', 'exists:technologies,id'],
     ];
 }
 }
