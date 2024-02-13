@@ -49,7 +49,7 @@
                     {{-- <td>{{ $project->language_framework }}</td> --}}
                     <td>{{ $project->visibility }}</td>
                     <td>
-                        <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-primary btn-sm">details</a>
+                        <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info btn-sm">details</a>
                         <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary btn-sm">edit</a>
                         <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST"
                             class="d-inline-block">

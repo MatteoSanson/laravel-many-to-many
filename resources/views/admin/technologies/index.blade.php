@@ -38,7 +38,7 @@
                     <td>{{ $technology->slug }}</td>
                     <td>
                         <a href="{{ route('admin.technologies.show', $technology) }}"
-                            class="btn btn-primary btn-sm">details</a>
+                            class="btn btn-info btn-sm">details</a>
                         <a href="{{ route('admin.technologies.edit', $technology) }}"
                             class="btn btn-primary btn-sm">edit</a>
                         <form action="{{ route('admin.technologies.destroy', $technology->slug) }}" method="POST"
