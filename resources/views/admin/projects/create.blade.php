@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('content')
-    <div class="my-3">
-        <h1>Add a project</h1>
-    </div>
-    <div>
+@section('header')
+    <h1>Add a project</h1>
+@endsection
 
+@section('content')
+    <div>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
