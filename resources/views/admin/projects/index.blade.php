@@ -17,7 +17,7 @@
 
     <table class="table">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th scope="col">#id</th>
                 <th scope="col">Title</th>
                 <th scope="col">Type</th>
@@ -29,7 +29,7 @@
         </thead>
         <tbody>
             @foreach ($projects as $project)
-                <tr>
+                <tr class="text-center">
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->type->title }}</td>
