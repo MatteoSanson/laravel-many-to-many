@@ -79,6 +79,20 @@
                                     Project</a>
                             </li> --}}
                             <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.types.index') }}">
+                                    <i class="fa-solid fa-laptop-code fa-lg fa-fw"></i> Type
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.types.create') }}">
+                                    <i class="fa-solid fa-plus fa-lg fa-fw"></i> New
+                                    Type
+                                </a>
+                            </li>
+
+
+
+                            <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('admin.technologies.index') }}">
                                     <i class="fa-solid fa-gear fa-lg fa-fw"></i> Technology
                                 </a>
