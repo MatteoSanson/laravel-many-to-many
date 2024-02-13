@@ -38,6 +38,28 @@
                     @endforeach
                 </select>
             </div>
+            <div class="mb-3">
+                <div>
+                    <label class="form-label">Tehcnology</label>
+                </div>
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-check-inline">
+                        @if ($errors->any())
+                            <input class="form-check-input" type="checkbox" value="{{ $technology->id }}"
+                                name="technologies[]" id="tag-{{ $technology->id }}"
+                                {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label"
+                                for="tag-{{ $technology->id }}">{{ $technology->title }}</label>
+                        @else
+                            <input class="form-check-input" type="checkbox" value="{{ $technology->id }}"
+                                name="technologies[]" id="tag-{{ $technology->id }}"
+                                {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}>
+                            <label class="form-check-label"
+                                for="tag-{{ $technology->id }}">{{ $technology->title }}</label>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
             {{-- <div class="mb-3">
                 <label class="form-label">Language/Framework</label>
                 <input type="text" class="form-control @error('language_framework') is-invalid @enderror"

@@ -82,7 +82,9 @@ class ProjectController extends Controller
     {
         $types = Type::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -109,6 +111,12 @@ class ProjectController extends Controller
         $project->slug = $slug;
 
         $project->save();
+
+        if (isset($data['technologies'])) {
+            $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->sync([]);
+        }
 
         return redirect()->route('admin.projects.show', $project->slug)->with('message', 'Progetto aggiornato con successo!');
     }
