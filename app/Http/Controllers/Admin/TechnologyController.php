@@ -40,7 +40,9 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
-        //
+        $projects = $technology->projects;
+
+        return view('admin.technologies.show', compact('technology', 'projects'));
     }
 
     /**
