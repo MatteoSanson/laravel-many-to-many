@@ -9,9 +9,11 @@
 @section('content')
     @if (session('message'))
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
-            <div class="toast show bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast show {{ session('notification_type') === 'danger' ? 'bg-danger text-white' : 'bg-success' }}"
+                role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
-                    <strong class="me-auto">Notifica</strong>
+                    <strong
+                        class="me-auto">{{ session('notification_type') === 'danger' ? 'Error' : 'Notification' }}</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">

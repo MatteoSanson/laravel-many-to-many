@@ -64,7 +64,7 @@ class ProjectController extends Controller
             $project->technologies()->sync($data['technologies']);
         }
 
-        return redirect()->route('admin.projects.show', $project->slug)->with('message', 'Progetto creato con successo!');
+        return redirect()->route('admin.projects.show', $project->slug)->with('message', 'New Project created!');
     }
 
     /**
@@ -118,7 +118,7 @@ class ProjectController extends Controller
             $project->technologies()->sync([]);
         }
 
-        return redirect()->route('admin.projects.show', $project->slug)->with('message', 'Progetto aggiornato con successo!');
+        return redirect()->route('admin.projects.show', $project->slug)->with('message', 'Project updated!');
     }
 
     /**
@@ -129,6 +129,6 @@ class ProjectController extends Controller
         $project->technologies()->sync([]);
 
         $project->delete();
-        return redirect()->route('admin.projects.index')->with('message', 'Hai eliminato un progetto!');
+        return redirect()->route('admin.projects.index')->with('message', 'Project deleted!');
     }
 }
