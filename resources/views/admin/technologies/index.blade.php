@@ -2,7 +2,8 @@
 
 @section('header')
     <h1>Technologies</h1>
-    <a href="{{ route('admin.projects.create') }}" role="button" class="btn btn-success btn-sm">Create a new technology</a>
+    <a href="{{ route('admin.technologies.create') }}" role="button" class="btn btn-success btn-sm">Create a new
+        technology</a>
 @endsection
 
 @section('content')
