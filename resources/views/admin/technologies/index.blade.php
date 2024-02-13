@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('header')
-    <h1>Projects</h1>
-    <a href="{{ route('admin.projects.create') }}" role="button" class="btn btn-success btn-sm">Create a new project</a>
+    <h1>Technologies</h1>
+    <a href="{{ route('admin.projects.create') }}" role="button" class="btn btn-success btn-sm">Create a new technology</a>
 @endsection
 
 @section('content')
@@ -25,33 +25,22 @@
             <tr class="text-center">
                 <th scope="col">#id</th>
                 <th scope="col">Title</th>
-                <th scope="col">Type</th>
-                <th scope="col">Technology</th>
-                {{-- <th scope="col">Language/Framework</th> --}}
-                <th scope="col">Visibility</th>
+                <th scope="col">Slug</th>
                 <th scope="col">Option</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($projects as $project)
+            @foreach ($technologies as $technology)
                 <tr class="text-center">
-                    <th scope="row">{{ $project->id }}</th>
-                    <td>{{ $project->title }}</td>
-                    <td>{{ $project->type->title }}</td>
+                    <th scope="row">{{ $technology->id }}</th>
+                    <td>{{ $technology->title }}</td>
+                    <td>{{ $technology->slug }}</td>
                     <td>
-                        @foreach ($project->technologies as $technology)
-                            {{ $technology->title }}
-                            @unless ($loop->last)
-                                -
-                            @endunless
-                        @endforeach
-                    </td>
-                    {{-- <td>{{ $project->language_framework }}</td> --}}
-                    <td>{{ $project->visibility }}</td>
-                    <td>
-                        <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-primary btn-sm">details</a>
-                        <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary btn-sm">edit</a>
-                        <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST"
+                        <a href="{{ route('admin.technologies.show', $technology) }}"
+                            class="btn btn-primary btn-sm">details</a>
+                        <a href="{{ route('admin.technologies.edit', $technology) }}"
+                            class="btn btn-primary btn-sm">edit</a>
+                        <form action="{{ route('admin.technologies.destroy', $technology->slug) }}" method="POST"
                             class="d-inline-block">
                             @csrf
                             @method('DELETE')
