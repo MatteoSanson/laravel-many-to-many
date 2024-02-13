@@ -1,25 +1,10 @@
 @extends('layouts.admin')
 
 @section('header')
-    <h1>Projects</h1>
-    <a href="{{ route('admin.projects.create') }}" role="button" class="btn btn-success btn-sm">New Project</a>
+    <h1>Projects with - {{ $technology->title }} - technology</h1>
 @endsection
 
 @section('content')
-    @if (session('message'))
-        <div class="toast-container position-fixed bottom-0 end-0 p-3">
-            <div class="toast show bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <strong class="me-auto">Notification</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    {{ session('message') }}
-                </div>
-            </div>
-        </div>
-    @endif
-
     <table class="table">
         <thead>
             <tr class="text-center">
@@ -27,7 +12,6 @@
                 <th scope="col">Title</th>
                 <th scope="col">Type</th>
                 <th scope="col">Technology</th>
-                {{-- <th scope="col">Language/Framework</th> --}}
                 <th scope="col">Visibility</th>
                 <th scope="col">Option</th>
             </tr>
@@ -46,7 +30,6 @@
                             @endunless
                         @endforeach
                     </td>
-                    {{-- <td>{{ $project->language_framework }}</td> --}}
                     <td>{{ $project->visibility }}</td>
                     <td>
                         <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info btn-sm">details</a>

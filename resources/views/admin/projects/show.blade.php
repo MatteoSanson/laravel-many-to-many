@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('header')
+    <h1>Project #{{ $project->id }} - {{ $project->title }}</h1>
+@endsection
+
 @section('content')
     @if (session('message'))
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
@@ -15,9 +19,9 @@
         </div>
     @endif
 
-    <div class="my-3">
+    {{-- <div class="my-3">
         <h1>{{ $project->title }}</h1>
-    </div>
+    </div> --}}
     <div class="card">
         <div class="card-header">
             <p><strong>Visibility:</strong> {{ $project->visibility }} project</p>

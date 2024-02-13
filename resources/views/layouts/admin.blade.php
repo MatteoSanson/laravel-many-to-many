@@ -78,6 +78,17 @@
                                 <a class="nav-link text-white" href="{{ route('admin.projects.create') }}">New
                                     Project</a>
                             </li> --}}
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.technologies.index') }}">
+                                    <i class="fa-solid fa-gear fa-lg fa-fw"></i> Technology
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.technologies.create') }}">
+                                    <i class="fa-solid fa-plus fa-lg fa-fw"></i> New
+                                    Technology
+                                </a>
+                            </li>
                         </ul>
 
 
@@ -85,6 +96,9 @@
                 </nav>
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <header class="d-flex justify-content-between align-items-center border-bottom mb-4 py-3">
+                        @yield('header')
+                    </header>
                     @yield('content')
                 </main>
             </div>

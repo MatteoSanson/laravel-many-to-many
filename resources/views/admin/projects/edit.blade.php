@@ -1,9 +1,10 @@
 @extends('layouts.admin')
 
+@section('header')
+    <h1>Update info: {{ $project->title }}</h1>
+@endsection
+
 @section('content')
-    <div class="my-3">
-        <h1>Aggiorna info di {{ $project->title }}</h1>
-    </div>
     <div>
 
         @if ($errors->any())

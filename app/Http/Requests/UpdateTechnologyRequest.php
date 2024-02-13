@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTechnologyRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateTechnologyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,23 @@ class UpdateTechnologyRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $technology = $this->route('technology');
+        // ['required', 'max:40', 'min:2', 'unique:technologies,title']
+    $titleRules = [
+        'required',
+        'max:40',
+        'min:2',
+        'unique:technologies,title',
+        Rule::unique('technologies', 'title')->ignore($technology->id, 'id')
+    ];
+
+    if ($this->input('title') === $technology->title) {
+        // Rimuovi la regola di unicità se il titolo non viene modificato
+        unset($titleRules[4]);
+    }
+
+    return [
+        'title' => $titleRules,
+    ];
     }
 }
